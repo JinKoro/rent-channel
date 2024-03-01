@@ -1,4 +1,4 @@
-# Telegram Rent Bot
+# Telegram Rent Channel
 
 The rent bot can publish post or messages to different channels that connect to this bot. 
 Due to telegram restriction, publications occur no more than 20 post in a minute.
@@ -26,18 +26,4 @@ telegram.rent.channels = <channel_name>, <channel_name_2>
 #### Update dependencies
 ```bash
 ./gradlew dependencyUpdates
-```
-
-## Example
-
-You can add your commands in different class that implement ```CommandHandler()```
-```
-    init {
-        command("hello") {
-            sendMessage(
-                text = "Hello User!", 
-                channels = builder.channels
-            )
-        }  
-    } 
 ```

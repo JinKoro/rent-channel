@@ -22,7 +22,7 @@ fun main() {
 
     runBlocking {
         while (true) {
-
+            // Nothing
         }
     }
 }
