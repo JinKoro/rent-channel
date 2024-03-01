@@ -15,7 +15,7 @@ object Configuration {
 
 data class Telegram(val telegram: Config = Config())
 data class Config(val rent: Rent = Rent())
-data class Rent(val bot: Bot = Bot(), val channels: List<ChannelName> = emptyList())
+data class Rent(val bot: Bot = Bot(), val channels: List<ChannelName> = emptyList(), val delay: Long = 0)
 data class Bot(val token: String = "<token>")
 
 typealias ChannelName = String

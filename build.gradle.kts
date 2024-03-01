@@ -21,13 +21,9 @@ repositories {
 }
 
 dependencies {
-    implementation(deps.guice)
     implementation(deps.hoplite)
     implementation(deps.java.json)
     implementation(deps.bundles.ktor)
-    runtimeOnly(deps.logging)
-    implementation(deps.slf4j)
-
 }
 
 detekt {

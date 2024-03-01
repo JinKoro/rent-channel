@@ -6,20 +6,19 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
-import org.slf4j.LoggerFactory
 
 abstract class AbstractWorker(
     private val interval: Long,
-    dispatcher: CoroutineDispatcher = Dispatchers.Default
+    dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : CoroutineScope by CoroutineScope(dispatcher) {
-    private val logger = LoggerFactory.getLogger(javaClass)
 
     fun start() = launch {
+        println("Start parsing...")
         while (isActive) {
             try {
                 process()
             } catch (logging: Throwable) {
-                logger.error("Worker exception: $logging", logging)
+                println("Worker exception: ${logging.cause?.message}")
             }
 
             delay(interval)

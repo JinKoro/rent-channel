@@ -7,7 +7,6 @@ import io.ktor.http.ContentType
 import io.ktor.http.contentType
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import org.slf4j.LoggerFactory
 import telegram.rent.bot.infrastructure.configuration.Config
 import telegram.rent.bot.rent.infrastructure.Apartment
 import telegram.rent.bot.rent.infrastructure.HttpClient
@@ -16,7 +15,6 @@ class TelegramSender(
     private val config: Config
 ) : Sender, HttpClient() {
 
-    private val logger = LoggerFactory.getLogger(javaClass)
     private val chat = config.rent.channels.first()
 
     override suspend fun send(apartment: Apartment) {
@@ -27,7 +25,7 @@ class TelegramSender(
             }.body<Response>()
 
             if (!response.ok) {
-                logger.error("Bad Sending:" + response.description)
+                println("Bad Sending:" + response.description)
             }
         }
     }
@@ -36,7 +34,7 @@ class TelegramSender(
 @Serializable
 data class Response(
     val ok: Boolean,
-    val description: String?
+    val description: String? = null
 )
 
 @Serializable

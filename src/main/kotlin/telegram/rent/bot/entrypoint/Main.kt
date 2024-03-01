@@ -1,5 +1,6 @@
 package telegram.rent.bot.entrypoint
 
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import telegram.rent.bot.infrastructure.configuration.Configuration
 import telegram.rent.bot.rent.api.Worker
@@ -18,11 +19,9 @@ fun main() {
     )
     val sender = TelegramSender(configuration)
 
-    Worker(parsers, sender).start()
+    Worker(parsers, sender, configuration).start()
 
     runBlocking {
-        while (true) {
-            // Nothing
-        }
+        delay(Int.MAX_VALUE.toLong())
     }
 }
