@@ -29,3 +29,5 @@ gradle-app.setting
 local.properties
 local-test.properties
 .idea
+script
+.DS_Store
