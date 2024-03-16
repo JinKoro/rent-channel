@@ -79,10 +79,10 @@ data class Apartment(
         }
 
         companion object {
-            private const val BYN_USD = 3.2
-            private const val RUB_USD = 92
-            private val minPrice = Price(250.0, Currency.USD)
-            private val maxPrice = Price(360.0, Currency.USD)
+            private const val BYN_USD = 3.23
+            private const val RUB_USD = 91.7
+            private val minPrice = Price(295.0, Currency.USD)
+            private val maxPrice = Price(365.0, Currency.USD)
 
             val priceDiaposon = minPrice..maxPrice
         }
