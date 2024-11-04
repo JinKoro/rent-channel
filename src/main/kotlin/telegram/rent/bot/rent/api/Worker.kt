@@ -15,7 +15,7 @@ class Worker(
     config: Config
 ): AbstractWorker(config.rent.delay) {
 
-    private val rooms = listOf(Apartment.Type.STUDIO, Apartment.Type.ONE_ROOMS)
+    private val rooms = listOf(Apartment.Type.STUDIO, Apartment.Type.ONE_ROOMS, Apartment.Type.TWO_ROOMS)
 
     override suspend fun process() {
         parsers
